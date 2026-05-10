@@ -1,15 +1,10 @@
+import { getCategories } from '@/lib/data-fetch';
 import Link from 'next/link';
 import React from 'react';
-
-const getCategories = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/news/categories')
-    return await res.json();
-}
 
 const LeftSideBar = async ({activeId}) => {
     const data = await getCategories();
     const categories = data.data.news_category;
-    // console.log(categories);
     
     return (
         <div className='space-y-4'>
